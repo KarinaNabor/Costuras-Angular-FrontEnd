@@ -1,0 +1,127 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$primary-colors: (
+    50 : #e1e7ec,
+    100 : #b5c3d0,
+    200 : #839bb1,
+    300 : #517392,
+    400 : #2c557a,
+    500 : #0091EA,
+    600 : #06315b,
+    700 : #052a51,
+    800 : #042347,
+    900 : #021635,
+    A100 : #6d97ff,
+    A200 : #3a73ff,
+    A400 : #074fff,
+    A700 : #0044ec,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+/* For use in src/lib/core/theming/_palette.scss */
+$accent-colors: (
+    50 : #e7f6f9,
+    100 : #c3e9f1,
+    200 : #9bdae8,
+    300 : #72cbde,
+    400 : #54c0d7,
+    500 : #36b5d0,
+    600 : #30aecb,
+    700 : #29a5c4,
+    800 : #229dbe,
+    900 : #168db3,
+    A100 : #e5f8ff,
+    A200 : #b3ebff,
+    A400 : #80deff,
+    A700 : #66d7ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$warn-colors: (
+    50 : #f3e0e0,
+    100 : #e0b3b3,
+    200 : #cc8080,
+    300 : #b84d4d,
+    400 : #a82626,
+    500 : #990000,
+    600 : #910000,
+    700 : #860000,
+    800 : #7c0000,
+    900 : #6b0000,
+    A100 : #ff9a9a,
+    A200 : #ff6767,
+    A400 : #ff3434,
+    A700 : #ff1a1a,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$sewing-icon:(
+500:#008f00,
+contrast: (
+        500 : #008f00,
+        )
+);
+
+$my-primary: mat-palette($primary-colors);
+$my-accent: mat-palette($accent-colors);
+$my-warn: mat-palette($warn-colors);
+$my-sewing-icon: mat-palette($sewing-icon);
+
+$my-theme: mat-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+   sewing-icon:$my-sewing-icon
+ )
+));
+
+@include angular-material-theme($my-theme);
+// @include mat.core-theme($my-theme);
+

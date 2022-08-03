@@ -1,0 +1,48 @@
+<mat-toolbar class="navbar" color="primary">
+  <div class="container-fluid">  
+    <button class="navbar-toggler button-i" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <mat-icon class="icon-color">reorder</mat-icon>
+    </button>
+    <span>{{namePage}}</span>
+    <button mat-icon-button [routerLink]="['/login']" (click)="logOut()">
+      <mat-icon class="icon-logout">logout</mat-icon>
+    </button>
+    <div class="offcanvas offcanvas-start menu-color-text" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+        <button type="button" class="menu-close-i" data-bs-dismiss="offcanvas" aria-label="Close">
+          <mat-icon class="icon-logout">close</mat-icon>
+        </button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+              <a class="nav-link active menu-c-letter" aria-current="page" routerLinkActive="active" [routerLink]="['/inicio']">
+                <mat-icon>fact_check</mat-icon>
+                Pedidos pendientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active menu-c-letter" aria-current="page" routerLinkActive="active" [routerLink]="['/inicio/composturas']">
+              <mat-icon>handyman</mat-icon>
+              Composturas</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link active menu-c-letter" aria-current="page" routerLinkActive="active" [routerLink]="['/inicio/clientes']">
+                <mat-icon>people_outline</mat-icon>
+                Clientes</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link active menu-c-letter" aria-current="page" routerLinkActive="active" [routerLink]="['/inicio/registro-pedido']">
+                <mat-icon>manage_accounts</mat-icon>
+                Nuevo pedido</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active menu-c-letter" aria-current="page" routerLinkActive="active" [routerLink]="['/inicio/pedidos-completados']">
+              <mat-icon>done_outline</mat-icon>
+              Pedidos completados</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

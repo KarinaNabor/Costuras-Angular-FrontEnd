@@ -1,0 +1,40 @@
+.example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+  .total-form{
+      display: flex;
+  }
+  .form-s{
+      width: 50%;
+  }
+  .form-f-s{
+      width: 95%;
+  }
+  .formSize{
+    justify-content: center;
+  }
+  .aling-select{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+.title-color{
+  color: #021635;
+}
+.icons-color{
+  color: #022056;
+}
+@media only screen and (max-width: 400px) {
+  .form-s {
+    width: 100%;
+  }
+}

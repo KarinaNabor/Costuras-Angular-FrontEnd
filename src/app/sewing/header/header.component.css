@@ -1,0 +1,25 @@
+.logout{
+    font-size: 100%;
+    color: white;
+}
+.button-i{
+    border-color: white;
+}
+.icon-color{
+    color:white;
+}
+.icon-logout{
+    color: white;
+}
+.menu-color-text{
+    background: #517392;
+    color:white;
+}
+.menu-c-letter{
+    color: white!important;
+}
+.menu-close-i{
+    color: white!important;
+    background: transparent;
+    border-color: transparent;
+}

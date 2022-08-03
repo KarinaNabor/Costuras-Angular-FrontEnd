@@ -1,0 +1,44 @@
+.style-table{
+  margin-top: 4%;
+  color: #012340;
+}
+table {
+  width: 100%;
+}
+.filter-form{
+  width: 80%;
+}
+.filter-total-s{
+  width: 100%;
+}
+.aling-b{
+  width: 20%;
+  align-self: center;
+  text-align: right;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 85%;
+}
+.icons-aling{
+  text-align: right;
+}
+::ng-deep .warning{
+  background: rgb(36, 165, 19);
+  color: cornsilk;
+}
+::ng-deep .error{
+  background: rgb(158, 8, 8);
+  color: cornsilk;
+}
+.color-colums{
+  color: #2c557a;
+  background: #dfe0e1;
+font-size: 1rem;
+  }
+
+  .styles-table{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }

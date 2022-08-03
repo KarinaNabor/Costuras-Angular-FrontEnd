@@ -1,0 +1,48 @@
+<mat-toolbar class="style-table" color="primary">
+    <span>Nuevo cliente</span>
+</mat-toolbar>
+<div mat-dialog-content class="formSize">
+    
+    <form [formGroup]="formCustomer">
+        <div class="formSize">
+            <mat-form-field appearance="fill" class="formSize">
+                <mat-label>Nombre cliente</mat-label>
+                <mat-icon matPrefix class="icons-color">face</mat-icon>
+                <input matInput autocomplete="off" formControlName="name" [(ngModel)]="data.name">   
+            </mat-form-field>
+        </div>
+        <div class="formSize">
+            <mat-form-field appearance="fill" class="formSize">
+                <mat-label>Apellido Paterno</mat-label>
+                <mat-icon matPrefix class="icons-color">account_box</mat-icon>
+                <input matInput autocomplete="off" formControlName="paternalSurname" [(ngModel)]="data.paternalSurname">
+            </mat-form-field>
+        </div>
+        <div class="formSize">
+            <mat-form-field appearance="fill" class="formSize">
+                <mat-label>Apellido Materno</mat-label>
+                <mat-icon matPrefix class="icons-color">account_box</mat-icon>
+                <input matInput autocomplete="off" formControlName="maternalSurname" [(ngModel)]="data.maternalSurname">
+            </mat-form-field>
+        </div>
+        <div class="formSize">
+            <mat-form-field appearance="fill" class="formSize" hintLabel="Max 10 caracteres">
+                <mat-label>No. de Teléfono</mat-label>
+                <mat-icon matPrefix class="icons-color">add_ic_call</mat-icon>
+                <input matInput autocomplete="off" maxlength="10" #input formControlName="phone" 
+                    [(ngModel)]="data.phone">
+            </mat-form-field>
+        </div>
+        <div class="formSize">
+            <mat-form-field appearance="fill" class="formSize">
+                <mat-label>E-mail</mat-label>
+                <mat-icon matPrefix class="icons-color">email</mat-icon>
+                <input matInput autocomplete="off" formControlName="email" [(ngModel)]="data.email">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions class="formSize">
+            <button mat-flat-button color="primary" (click)="onNoClick()">Cancelar</button>
+            <button mat-flat-button color="primary" [disabled]="formCustomer.invalid" [mat-dialog-close]="data">Guardar</button>
+        </div>
+    </form>
+</div>

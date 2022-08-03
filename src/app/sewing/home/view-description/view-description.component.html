@@ -1,0 +1,25 @@
+<h2 mat-dialog-title class="title-color">{{data.productServiceName}}</h2>
+<div mat-dialog-content>
+    <div>
+        <div *ngIf="data.status==0">
+            <h3 class="h3">Pendiente</h3>       
+        </div>
+        <div *ngIf="data.status==1">
+            <h3 class="h3">En proceso</h3>       
+        </div>
+        <div *ngIf="data.status==2">
+            <h3 class="h3">Retraso</h3>       
+        </div>
+        <div *ngIf="data.status==3">
+            <h3 class="h3">Terminado</h3>       
+        </div>
+        <div *ngIf="data.status==4">
+            <h3 class="h3">Entregado</h3>       
+        </div>
+    </div>
+    <p>{{data.descriptionService}}</p>
+    <div class="button-position">
+        <button mat-flat-button (click)="onNoClick()" color="primary">Cerrar</button>
+    </div>
+</div>
+

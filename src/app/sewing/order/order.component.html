@@ -1,0 +1,90 @@
+<div *ngIf="listOrders.length<1" class="startPage">
+  <h3 class="style-text-init">Realice un registro nuevo</h3>
+  <button mat-stroked-button mat-flat-button class="size-b-init" color="primary" (click)="openDialog()">Agregar</button>
+</div>
+<div *ngIf="listOrders.length>0">
+  <div class="filter-total-s row">
+      <div class="filter-form col">
+        <mat-chip-list>
+          <mat-chip class="name-color">
+            {{customerName|uppercase }}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="col aling-b">
+        <button mat-flat-button color="primary" (click)="openDialog()">Agregar</button>
+      </div>
+  </div>
+  <div class="mat-elevation-z8 styles-table">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef color="primary" class="color-colums"> ID </th>
+        <td mat-cell *matCellDef="let item"> {{item.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="codeClothing">
+        <th mat-header-cell *matHeaderCellDef color="primary" class="color-colums"> Código Prenda </th>
+        <td mat-cell *matCellDef="let item"> {{item.codeShort}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="descriptionService">
+        <th mat-header-cell *matHeaderCellDef color="primary" class="color-colums"> Descripcion prenda </th>
+        <td mat-cell *matCellDef="let item"> {{item.descriptionService}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="typeService">
+        <th mat-header-cell *matHeaderCellDef color="primary" class="color-colums"> Tipo servicio </th>
+        <td mat-cell *matCellDef="let item"> {{item.productServiceName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef color="primary" class="color-colums"> Precio final </th>
+        <td mat-cell *matCellDef="let item"> {{item.realPrice|currency}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="registrationDate">
+        <th mat-header-cell *matHeaderCellDef color="primary" class="color-colums"> Fecha de registro</th>
+        <td mat-cell *matCellDef="let item"> {{item.registrationDate | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deliveryDate">
+        <th mat-header-cell *matHeaderCellDef color="primary" class="color-colums"> Fecha de entrega</th>
+        <td mat-cell *matCellDef="let item"> {{item.deliveryDate | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef color="primary" class="color-colums"> Estatus del pago</th>
+        <td mat-cell *matCellDef="let item"> 
+          <div *ngIf="item.statusPaid==0" class="color3">
+            Pagado
+          </div>
+          <div *ngIf="item.statusPaid==1" class="color2">
+            No pagado
+          </div>
+          <div *ngIf="item.statusPaid==2" class="color1">
+            Adelanto
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="color-colums"> </th>
+        <td mat-cell *matCellDef="let item" class="icons-aling">
+          <a matTooltip="Editar pedido" (click)=" openDialogToEdit(item, item.id)">
+            <mat-icon color="accent">edit</mat-icon>
+          </a>
+          <a matTooltip="Borrar pedido" (click)="deleteOrderById(item.id)">
+            <mat-icon color="accent">delete</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons 
+                    aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>

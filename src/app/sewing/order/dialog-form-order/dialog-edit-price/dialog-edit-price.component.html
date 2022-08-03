@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Editar precio</h1>
+<form [formGroup]="form">
+  <div mat-dialog-content>  
+      <mat-form-field appearance="fill">
+        <mat-label>Ingresa el nuevo precio: </mat-label>
+        <input matInput [(ngModel)]="data.price" formControlName="price" type="number">
+        <mat-icon matPrefix class="icons-color">attach_money</mat-icon>
+      </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="primary" (click)="onNoClick()">Cancelar</button>
+    <button mat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Enviar</button>
+  </div>
+</form>

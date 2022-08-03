@@ -1,0 +1,8 @@
+.title-color{
+    color: #021635;
+  }
+
+  .button-position{
+    display: flex;
+    flex-flow: row-reverse;
+  }

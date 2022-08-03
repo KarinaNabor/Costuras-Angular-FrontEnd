@@ -1,0 +1,98 @@
+<mat-toolbar class="style-table" color="primary">
+    <span>Nuevo pedido</span>
+</mat-toolbar>
+<div mat-dialog-content class="total-form">
+    <form class="row">
+        <div class="row form-s">
+            <div>
+                <mat-form-field appearance="fill"  class="form-f-s">
+                    <mat-label>Nombre Cliente</mat-label>
+                    <mat-icon matPrefix class="icons-color">face</mat-icon>
+                    <input matInput aria-label="User" [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name+' '
+                            +option.paternalSurname +' '+ option.maternalSurname"
+                            (click)="getCustomerId(option)">
+                            {{option.name}} {{option.paternalSurname}} {{option.maternalSurname}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill"  class="form-f-s">
+                    <mat-label>Compostura</mat-label>
+                    <mat-icon matPrefix class="icons-color">miscellaneous_services</mat-icon>
+                    <mat-select [formControl]="sewingSelected" multiple>
+                        <mat-select-trigger>
+                            {{sewingSelected.value ? sewingSelected.value[0].name : ''}}
+                            <span *ngIf="sewingSelected.value?.length > 1">
+                            (+{{sewingSelected.value.length - 1}} {{sewingSelected.value?.length === 2 ? 'otro' : 'otros'}})
+                            </span>
+                        </mat-select-trigger>
+                        <div *ngFor="let sewing of sewingsList; let i = index">
+                            <div class="aling-select">
+                                <mat-option  [value]="sewing" 
+                                    (onSelectionChange)="onSewingChange(sewing)">
+                                        <div><span>{{sewing.name}} {{sewing.suggestedPrice|currency}}</span></div>                            
+                                </mat-option>
+                                <div>
+                                    <button *ngIf="sewing.active" (click)="viewPrice(sewing)" 
+                                        mat-stroked-button [id]="i" color="primary">Cambiar precio
+                                    </button>                  
+                                </div> 
+                            </div>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" floatLabel="always" class="form-f-s">
+                    <mat-label>Precio total</mat-label>
+                    <input matInput type="number" class="example-right-align" [(ngModel)]="finalPrice" 
+                        [ngModelOptions]="{standalone: true}" placeholder="0" autocomplete="off">
+                    <mat-icon matPrefix class="icons-color">attach_money</mat-icon>
+                    <span matSuffix>.00</span>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" class="form-f-s">
+                    <mat-label>Fecha de entrega</mat-label>
+                    <input matInput [matDatepicker]="datepicker" (dateInput)="OnDateDelivery($event.value)"
+                    [ngModel]="data.deliveryDate" [ngModelOptions]="{standalone: true}">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker class="icons-color">
+                      <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancelar</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+                      </mat-datepicker-actions>
+                    </mat-datepicker>
+                  </mat-form-field>
+            </div>         
+        </div> 
+        <div class="row form-s">
+            <div>
+                <mat-form-field class="form-f-s" appearance="fill">
+                    <mat-label>Estatus de pago</mat-label>
+                    <mat-select [(ngModel)]="selectedValue" name="status">
+                      <mat-option *ngFor="let status of statusOptions" [value]="status.id">
+                        {{status.paidStatus}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="form-f-s" appearance="fill">
+                    <mat-label>Descripción servicio</mat-label>
+                    <mat-icon matPrefix class="icons-color">description</mat-icon>
+                    <textarea matInput placeholder="Ej. Comprar un cierre..." [(ngModel)]="descriptionServices"
+                    [ngModelOptions]="{standalone: true}"></textarea>
+                </mat-form-field>
+            </div>
+            <div mat-dialog-actions class="formSize">
+                <button mat-flat-button (click)="onNoClick()" color="primary">Cancelar</button>
+                <button mat-flat-button [mat-dialog-close]="serviceCustomersListPost" color="primary" (click)="createPostList()">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>

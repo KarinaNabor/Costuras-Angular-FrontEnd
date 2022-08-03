@@ -1,0 +1,32 @@
+<mat-toolbar class="style-table" color="primary">
+    <span>Nueva compostura</span>
+</mat-toolbar>
+<div mat-dialog-content class="formSize">  
+    <form [formGroup]="form">
+        <div class="formSize">
+            <mat-form-field appearance="fill" class="formSize">
+                <mat-label>Nombre compostura</mat-label>
+                <mat-icon matPrefix class="icons-color">build</mat-icon>
+                <input matInput autocomplete="off" formControlName="name" [(ngModel)]="data.name">
+            </mat-form-field>
+        </div>
+        <div class="formSize">
+            <mat-form-field appearance="fill" class="formSize">
+                <mat-label>Descripción</mat-label>
+                <mat-icon matPrefix class="icons-color">description</mat-icon>
+                <input matInput autocomplete="off" formControlName="description" [(ngModel)]="data.description">
+            </mat-form-field>
+        </div>
+        <div class="formSize">
+            <mat-form-field appearance="fill" class="formSize">
+                <mat-label>Precio</mat-label>
+                <mat-icon matPrefix class="icons-color">paid</mat-icon>
+                <input type="number" matInput autocomplete="off" formControlName="suggestedPrice" [(ngModel)]="data.suggestedPrice">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions class="formSize">
+            <button mat-flat-button color="primary" (click)="onNoClick()">Cancelar</button>
+            <button mat-flat-button [disabled]="form.invalid"  color="primary" [mat-dialog-close]="data">Guardar</button>
+        </div>
+    </form>
+</div>

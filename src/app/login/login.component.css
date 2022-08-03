@@ -1,0 +1,46 @@
+.screen-h{
+    height: 100%;
+}
+.fondo{
+    background-image:url('../../assets/fondo3.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+.login-aling{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.size-form-login{
+    width: 100%;
+}
+.title-login{
+    text-align: center;
+    color:#011044;
+}
+.btn-login{
+    display: flex;
+    justify-content: space-around;
+}
+.button-paswrd{
+    background: transparent;
+    border-color: transparent;
+}
+::ng-deep .error{
+    background: brown;
+    color: cornsilk;
+}
+.spinner{
+    margin:0 auto;
+}
+.header-login{
+    height: 10%;
+    width: 100%;
+}
+@media only screen and (min-width:200px) and (max-width:830px){
+    .size-login-media{
+        width: 95%;
+    }
+}

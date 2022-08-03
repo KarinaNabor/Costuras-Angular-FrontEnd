@@ -1,0 +1,41 @@
+<!-- <mat-toolbar class="header-login" color="primary"></mat-toolbar> -->
+<div class="container screen-h fondo">
+    <div class="login-aling">
+        <mat-spinner diameter="50" class="spinner" *ngIf="loading"></mat-spinner>
+        <div class="row justify-content-center" *ngIf="!loading">
+            <div class="col-4 size-login-media">
+                <mat-card>
+                    <mat-card-title class="title-login">
+                        Iniciar sesión
+                    </mat-card-title>
+                    <br>
+                    <mat-card-content>
+                        <form  #formLogin="ngForm" (ngSubmit)="login(formLogin)" novalidate>
+                            <div class="form-group">
+                                <mat-form-field appearance="fill" class="size-form-login">
+                                    <mat-label>Usuario</mat-label>
+                                    <input matInput type="email" placeholder="Usuario" autocomplete="off" id="userAccount"
+                                        name="userAccount" required [(ngModel)]="credentials.userAccount" >
+                                    <mat-icon matSuffix color="primary">account_circle</mat-icon>
+                                  </mat-form-field>
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field appearance="fill" class="size-form-login">
+                                    <mat-label>Password</mat-label>
+                                    <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off"
+                                        id="password" name="password" [(ngModel)]="credentials.password" required>
+                                    <button class="button-paswrd" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                      <mat-icon color="primary">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </button>
+                                </mat-form-field>
+                            </div>
+                            <div class="btn-login">
+                                <button type="submit" mat-raised-button color="primary" [disabled]="!formLogin.valid">Login</button>
+                            </div>                           
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div> 
+        </div>
+    </div>
+</div>

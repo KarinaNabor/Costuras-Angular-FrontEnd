@@ -1,0 +1,46 @@
+<h2 mat-dialog-title class="title-color">Editar el pedido</h2>
+<div mat-dialog-content class="formSize">  
+    <form>
+        <div class="formSize">
+            <mat-form-field class="style-table" appearance="standard">
+                <mat-label>Proceso del pedido</mat-label>
+                <mat-icon color="primary" matPrefix>pending_actions</mat-icon>
+                <mat-select [(ngModel)]="data.status" name="statusOrder">
+                  <mat-option *ngFor="let statusOrder of statusOrderOptions" [value]="statusOrder.id">
+                    {{statusOrder.orderStatus}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="formSize">
+            <mat-form-field class="style-table" appearance="standard">
+                <mat-label>Estatus del pago</mat-label>
+                <mat-icon color="primary" matPrefix>price_check</mat-icon>
+                <mat-select [(ngModel)]="data.statusPaid" name="statusPaid">
+                  <mat-option *ngFor="let statusPaid of statusOptions" [value]="statusPaid.id">
+                    {{statusPaid.paidStatus}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="formSize">
+            <mat-form-field appearance="standard" class="style-table">
+                <mat-label>Fecha de entrega</mat-label>
+                <input matInput [matDatepicker]="datepicker" autocomplete="off"
+                  [(ngModel)]="data.deliveryDate" [ngModelOptions]="{standalone: true}">
+                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                    <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancelar</button>
+                    <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+            </mat-form-field>
+        </div>
+        
+       <div mat-dialog-actions class="formSize">
+            <button mat-stroked-button (click)="onNoClick()">Cancelar</button>
+            <button mat-flat-button color="primary" [mat-dialog-close]="data">Guardar</button>
+        </div>
+    </form>
+</div>
